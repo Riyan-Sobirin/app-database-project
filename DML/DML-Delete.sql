@@ -1,0 +1,28 @@
+--delete
+
+SELECT * FROM Customer
+
+BEGIN TRANSACTION
+DELETE FROM Customer
+WHERE CustomerName = 'Ryan'
+ROLLBACK
+
+BEGIN TRANSACTION
+DELETE FROM Customer
+WHERE CustomerPhone = '123123123'
+COMMIT
+
+BEGIN TRANSACTION
+DELETE FROM Customer
+WHERE CustomerAddress = 'Jalan Metaverse'
+COMMIT
+
+SELECT * 
+FROM HeaderSellTransaction
+
+BEGIN TRANSACTION
+DELETE FROM HeaderSellTransaction
+WHERE DATENAME(DAY, TransactionDate) = 21
+ROLLBACK
+
+
